@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Alembic
+alembic.ini
+alembic/
+
+# SQLAlchemy
+sqlalchemy.url
+
 # Distribution / packaging
 .Python
 build/
