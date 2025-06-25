@@ -8,7 +8,7 @@ from app.models import DB_session
 from sqlalchemy.orm import Session
 from typing import List
 from fastapi import APIRouter, HTTPException, status, Depends
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import HTTPBearer
 
 router = APIRouter()
 
@@ -103,7 +103,7 @@ async def create_user_endpoint(
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
-@router.get("/me/profile", response_model=UserResponse)
+@router.get("/profile", response_model=UserResponse)
 async def get_current_user_profile(
     current_user: UserResponse = Depends(get_current_active_user)
 ):
